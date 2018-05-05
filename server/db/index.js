@@ -1,12 +1,14 @@
 const sql = require('./sql.js');
 
 const setup = async () => {
-  // drop friends table
-  // drop users table
-  // drop database
-  // re-create database
+  await sql.drop('table', 'friends');
+  await sql.drop('table', 'users');
+  await sql.createUsersTable();
   // recreate friends table
   // recreate users table
+  process.exit();
 };
+
+setup();
 
 module.exports = setup;
