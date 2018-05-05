@@ -2,7 +2,7 @@ module.exports = {
   db: {
     user: 'root',
     host: 'localhost',
-    name_dev: 'eventayRDB',
+    name: 'primarydb',
     password: '',
     port: 5432
   }
