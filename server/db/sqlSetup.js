@@ -6,7 +6,6 @@ module.exports = {
       await db.queryAsync(`DROP ${type} IF EXISTS ${name}`);
       console.log(`Successfully dropped ${name} ${type}.`);
     } catch (err) {
-      console.log(err);
       console.log(`Error dropping ${name} ${type}.`);
     }
   },
@@ -18,6 +17,7 @@ module.exports = {
         (
           id SERIAL,
           name VARCHAR(255) UNIQUE NOT NULL,
+          code VARCHAR(255) UNIQUE NOT NULL,
           CONSTRAINT users_pk
             PRIMARY KEY(id)
         )
