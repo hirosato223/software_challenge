@@ -8,6 +8,7 @@ module.exports = {
     filename: 'bundle.js',
     path: DIST_DIR
   },
+  mode: 'development',
   watch: true,
   module: {
     rules: [
@@ -19,6 +20,10 @@ module.exports = {
         query: {
           presets: ['react', 'env']
         }
+      },
+      {
+        test: /\.css$/,
+        loaders: ['style-loader', 'css-loader']
       },
       {
         test: /\.(png|jpg|gif)$/,
