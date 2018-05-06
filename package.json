@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/hirosato223/software_challenge#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "express": "^4.16.3",

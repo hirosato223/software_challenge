@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const controller = require('./controller.js');
 
-router.get('/allUsers', async (req, res) => {
+router.get('/getAllUsers', async (req, res) => {
   try {
     let data = await controller.getAllUsers();
     res.send(data);

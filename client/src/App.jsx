@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -8,23 +9,35 @@ export default class App extends React.Component {
       users: []
     };
   }
-  // getUsers() {
-  //   axios
-  //     .get(`/api/friends/${ownId}`, this.state.authHeader)
-  //     .then(res => {
-  //       const friendIds = [];
-  //       for (let idx in res.data) {
-  //         friendIds.push([res.data[idx].id, res.data[idx].username]);
-  //       }
-  //       this.setState({ allFriends: friendIds });
-  //     })
-  //     .catch(err => console.log(err));
-  // }
+
+  componentWillMount() {
+    this.getUsers();
+  }
+
+  getUsers() {
+    axios
+      .get('/api/getAllUsers')
+      .then(res => {
+        const allUsers = [];
+        for (let idx in res.data) {
+          allUsers.push([res.data[idx].name, res.data[idx].code]);
+        }
+        this.setState({ users: allUsers });
+      })
+      .catch(err => console.log(err));
+  }
 
   render() {
+    console.log(this.state.users);
     return (
       <div>
         <p>Hello from app</p>
+        <ul>
+          {this.state.users.map((user, idx) => {
+            return <li key={idx}>{user[0]}</li>;
+          })}
+        </ul>
+
         {/* TODO: render list of users */}
       </div>
     );
