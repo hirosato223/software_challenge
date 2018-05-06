@@ -7,6 +7,7 @@ const setup = async () => {
   await sqlSetup.createUsersTable();
   await sqlSetup.createFriendsTable();
   await parseData.parseUsers();
+  await parseData.parseFriends();
   process.exit();
 };
 
