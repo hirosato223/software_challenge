@@ -14,6 +14,7 @@ export default class App extends React.Component {
     };
 
     this.clickUser = this.clickUser.bind(this);
+    this.returnHome = this.returnHome.bind(this);
   }
 
   componentWillMount() {
@@ -21,7 +22,6 @@ export default class App extends React.Component {
   }
 
   clickUser(e, name, code) {
-    // change the pageType to profile
     this.setState({
       pageType: 'user',
       clickedUserName: name,
@@ -42,13 +42,17 @@ export default class App extends React.Component {
       .catch(err => console.log(err));
   }
 
+  returnHome() {
+    this.setState({ pageType: 'home' });
+  }
+
   render() {
-    console.log(this.state.users);
     return (
       <div>
         {this.state.pageType === 'home' && (
           <div>
-            <h1>Main page</h1>
+            <h1>Home Page</h1>
+            <h3>All users:</h3>
             <ul>
               {this.state.users.map((user, idx) => {
                 return (
@@ -68,6 +72,7 @@ export default class App extends React.Component {
           <UserPage
             name={this.state.clickedUserName}
             code={this.state.clickedUserCode}
+            returnHome={this.returnHome}
           />
         )}
       </div>

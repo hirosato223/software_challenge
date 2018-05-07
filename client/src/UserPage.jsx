@@ -15,10 +15,6 @@ export default class App extends React.Component {
     this.clickFriend = this.clickFriend.bind(this);
   }
 
-  componentWillMount() {
-    this.getFriends();
-  }
-
   getFriends() {
     axios
       .get('/api/getFriends', {
@@ -42,21 +38,21 @@ export default class App extends React.Component {
   }
 
   clickFriend(e, name, code) {
-    console.log(this.state.code);
-    // issue get request to database to get clicked user's friends
-
-    // update friends
-
     this.setState({ code: code, name: name });
     setTimeout(() => {
       this.getFriends();
     }, 500);
   }
 
+  componentWillMount() {
+    this.getFriends();
+  }
+
   render() {
     return (
       <div>
         <h1>Welcome to {this.state.name}'s page!</h1>
+        <h3>Friends list:</h3>
         <ul>
           {this.state.friends.map((friend, idx) => {
             return (
@@ -69,6 +65,7 @@ export default class App extends React.Component {
             );
           })}
         </ul>
+        <button onClick={this.props.returnHome}>Home Page</button>
       </div>
     );
   }
