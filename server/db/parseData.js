@@ -13,13 +13,15 @@ module.exports = {
     let parsedUsers = data.split(/\n/).slice(1);
     for (let i = 0; i < parsedUsers.length; i++) {
       let splitRecord = parsedUsers[i].split(' ');
-      try {
-        await db.queryAsync(
-          `INSERT INTO users (name, code) VALUES
-            ('${splitRecord[2]}', '${splitRecord[0]}');`
-        );
-      } catch (err) {
-        console.log('Error:', err);
+      if (splitRecord[1] === 'Name') {
+        try {
+          await db.queryAsync(
+            `INSERT INTO users (name, code) VALUES
+              ('${splitRecord[2]}', '${splitRecord[0]}');`
+          );
+        } catch (err) {
+          console.log('Error:', err);
+        }
       }
     }
   },
@@ -32,13 +34,15 @@ module.exports = {
     let parsedFriends = data.split(/\n/).slice(1);
     for (let i = 0; i < parsedFriends.length; i++) {
       let splitRecord = parsedFriends[i].split(' ');
-      try {
-        await db.queryAsync(
-          `INSERT INTO friends (user_id, target_id) VALUES
-            ('${splitRecord[1]}', '${splitRecord[3]}');`
-        );
-      } catch (err) {
-        console.log('Error:', err);
+      if (splitRecord[0] === 'FRIENDS_WITH') {
+        try {
+          await db.queryAsync(
+            `INSERT INTO friends (user_id, target_id) VALUES
+              ('${splitRecord[1]}', '${splitRecord[3]}');`
+          );
+        } catch (err) {
+          console.log('Error:', err);
+        }
       }
     }
   }

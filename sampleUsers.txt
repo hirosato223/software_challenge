@@ -1,14 +1,14 @@
 ID Property Value
 Q Name Bulldogs
 A Name Ally
-Z Phone 1234
+Z Name 1234
 D Name Judd
 X Name Shermer
 C Name Emilio
 B Name Molly
 G Name Kieff
 H Name Martin
-M Model Karmann Ghia
+M Name Karmann
 I Name Brad
 J Name Joe
 K Name Kevin
