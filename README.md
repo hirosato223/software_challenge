@@ -13,7 +13,7 @@
 11. Open web browser at localhost:1337
 
 Additional dependencies:
-Node
+Node: https://nodejs.org/en/download/
 PostgreSQL: https://www.postgresql.org/download/ (general) https://www.postgresql.org/download/macosx/ (macOS)
 
 Discussion:
