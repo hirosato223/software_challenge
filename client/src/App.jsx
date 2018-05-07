@@ -9,7 +9,8 @@ export default class App extends React.Component {
     this.state = {
       pageType: 'home',
       users: [],
-      clickedUser: ''
+      clickedUserName: '',
+      clickedUserCode: ''
     };
 
     this.clickUser = this.clickUser.bind(this);
@@ -19,14 +20,13 @@ export default class App extends React.Component {
     this.getUsers();
   }
 
-  clickUser(e, user) {
-    console.log('user clicked!', e, user);
-    // issue get request to database to get clicked user's friends
-
-    // render the profile page
-
+  clickUser(e, name, code) {
     // change the pageType to profile
-    this.setState({ pageType: 'user', clickedUser: user });
+    this.setState({
+      pageType: 'user',
+      clickedUserName: name,
+      clickedUserCode: code
+    });
   }
 
   getUsers() {
@@ -52,7 +52,10 @@ export default class App extends React.Component {
             <ul>
               {this.state.users.map((user, idx) => {
                 return (
-                  <li key={idx} onClick={e => this.clickUser(e, user[0])}>
+                  <li
+                    key={idx}
+                    onClick={e => this.clickUser(e, user[0], user[1])}
+                  >
                     {user[0]}
                   </li>
                 );
@@ -62,7 +65,10 @@ export default class App extends React.Component {
         )}
 
         {this.state.pageType === 'user' && (
-          <UserPage user={this.state.clickedUser} />
+          <UserPage
+            name={this.state.clickedUserName}
+            code={this.state.clickedUserCode}
+          />
         )}
       </div>
     );
