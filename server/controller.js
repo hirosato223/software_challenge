@@ -1,4 +1,3 @@
-// TODO: add functions to query database
 const db = require('./db/db.js');
 
 module.exports = {
