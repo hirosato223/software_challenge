@@ -28,7 +28,7 @@ Additional data files:
 To enhance scalability, I would also implement a CLI method to load additional data files into the databases. Currently, the database initialization script only loads the two included files (sampleFriends.txt and sampleUsers.txt) into the database. A separate CLI would allow the user to specify the type and path of a new file to load.
 
 Testing:  
-I would utilize the Jest testing framework for validating the API's functionality. With a built in assertion and mocking library, Jest requires less setup/customization; this would allow for increased test development/coverage. Jest would also be beneficial for front end testing; as additional functionality is added, Jest's snapshot testing can be leveraged to detect unforeseen UI changes.
+I would utilize the Jest testing framework for validating the API's functionality. With a built in assertion and mocking library, Jest requires less setup/customization; this would allow for increased test development/coverage. In particular, I would use Jest to implement unit tests to validate that the controller functions return the expected users/friends when invoked. Jest would also be beneficial for front end testing; as additional functionality is added, Jest's snapshot testing can be leveraged to detect unforeseen UI changes.
 
 -Overall impressions-  
 I overall enjoyed designing building the project from the ground up, and feel satisfied with the current progress. In the future, I would like to explore additional ways to store/model the relationship data, particularly with graphs.
