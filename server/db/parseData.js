@@ -30,11 +30,9 @@ module.exports = {
       'utf8'
     );
     let parsedFriends = data.split(/\n/).slice(1);
-    console.log(parsedFriends);
     for (let i = 0; i < parsedFriends.length; i++) {
       let splitRecord = parsedFriends[i].split(' ');
       try {
-        console.log(splitRecord);
         await db.queryAsync(
           `INSERT INTO friends (user_id, target_id) VALUES
             ('${splitRecord[1]}', '${splitRecord[3]}');`
