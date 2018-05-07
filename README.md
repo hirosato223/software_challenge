@@ -12,6 +12,10 @@
 10. Start webpack => npm run build
 11. Open web browser at localhost:1337
 
+Additional dependencies:
+Node
+PostgreSQL: https://www.postgresql.org/download/ (general) https://www.postgresql.org/download/macosx/ (macOS)
+
 Discussion:
 
 -Overall approach-  
